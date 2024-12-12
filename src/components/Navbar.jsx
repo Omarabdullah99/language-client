@@ -4,10 +4,14 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png'
 import menuIcon from '../assets/menu_icon.svg'
 import crossIcon from '../assets/cross_icon.png'
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [token, setToken] = useState(false);
+  const {user}= useSelector((state)=>({...state.authentication}))
+  console.log("navbar",user)
+  const token=user?.token
+  console.log(token)
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-300">
       <Link to="/">
@@ -33,11 +37,15 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-4">
         {token ? (
-           <Link >
+           <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ">
+          <img className="hidden md:block w-14 h-14 rounded-full" src={user?.result?.image} alt="" />
+          <p className="hidden md:block font-[600]">Welcome{user?.result?.name}</p>
+          </div>
            <button>
              Logout
            </button>
-         </Link>
+         </div>
         ) : (
           <Link to={"/login"}>
             {""}
