@@ -13,7 +13,7 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue, // ফাইল ইনপুটের মান সেট করার জন্য
+    setValue, 
   } = useForm();
 
   const [docImg, setDocImg] = useState("");
@@ -26,7 +26,7 @@ const Register = () => {
   const dispatch=useDispatch()
   const navigate= useNavigate()
 
-//   //!error handel 
+ //!error handel 
   useEffect(()=>{
     error && toast.error(error)
   }, [error])

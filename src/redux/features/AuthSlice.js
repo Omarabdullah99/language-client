@@ -5,6 +5,7 @@ export const login = createAsyncThunk(
   "auth/login",
   async ({ formValue, navigate, toast }, { rejectWithValue }) => {
     try {
+      console.log('formvalue',formValue)
       const response = await api.signIn(formValue);
       toast.success("Login Successfully");
       navigate("/");
