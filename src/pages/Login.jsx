@@ -27,9 +27,9 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className="min-h-screen">
-      <div className="flex items-center justify-center mb-[80px]">
-        <div className="bg-white p-8 rounded-[20px] shadow-lg w-96 border border-[#D4D4D4]">
+    <div className="h-screen flex justify-center items-center">
+   
+        <div className="bg-white p-8 rounded-[20px] shadow-lg w-96 border border-[#D4D4D4] ">
           <h2 className="text-2xl font-semibold text-gray-800 mb-2">
             Login
           </h2>
@@ -75,7 +75,7 @@ const Login = () => {
                 type="submit"
                 className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Login
+                {loading ? 'submitting':  'Login'}
               </button>
             </div>
           </form>
@@ -87,7 +87,7 @@ const Login = () => {
             </Link>
           </p>
         </div>
-      </div>
+     
     </div>
   );
 };
