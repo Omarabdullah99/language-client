@@ -5,14 +5,11 @@ export const login = createAsyncThunk(
   "auth/login",
   async ({ formValue, navigate, toast }, { rejectWithValue }) => {
     try {
-      console.log('formvalue',formValue)
       const response = await api.signIn(formValue);
       toast.success("Login Successfully");
       navigate("/");
-      console.log("loginresponse", response);
       return response.data;
     } catch (error) {
-      console.log("loginerror", error);
       return rejectWithValue(error.response.data);
     }
   }
@@ -25,13 +22,14 @@ export const signUp = createAsyncThunk(
       const response = await api.signUp(formValue);
       toast.success("Register Successfully");
       navigate("/");
-      console.log("registerresponse", response);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
 );
+
+
 
 const authSlice = createSlice({
   name: "authentication",
@@ -75,7 +73,8 @@ const authSlice = createSlice({
       .addCase(signUp.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
-      });
+      })
+    
   },
 });
 
