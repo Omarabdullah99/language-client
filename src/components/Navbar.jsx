@@ -10,7 +10,7 @@ import { setLogout } from "../redux/features/AuthSlice";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const {user}= useSelector((state)=>({...state.authentication}))
-  // console.log("navbar",user)
+  console.log("navbar",user)
   const token=user?.token
   // console.log(token)
   const dispatch=useDispatch()
